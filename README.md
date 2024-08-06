@@ -1,7 +1,7 @@
 # Aula zero the barbershop
 
 [x] setup do banco
--[] seeding  do banco (coloacr dados no banco)
+[x] seeding  do banco (coloacr dados no banco)
 -[] introdução ao Next.js
 -[] Tailwind e Shadcn
 -[] Git Hooks
