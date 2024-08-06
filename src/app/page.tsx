@@ -3,7 +3,7 @@
 import { Button } from "./_components/ui/button"
 
 const Home = () => {
-  return(
+  return (
     <>
       <h1>Home page</h1>
       <Button>Teste</Button>
