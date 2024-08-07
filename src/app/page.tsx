@@ -1,13 +1,13 @@
-import { FootprintsIcon, Search } from "lucide-react"
+import { Search } from "lucide-react"
 import Header from "./_components/header"
 import { Button } from "./_components/ui/button"
 import { Input } from "./_components/ui/input"
 import Image from "next/image"
 import { Card, CardContent } from "./_components/ui/card"
-import { Badge } from "./_components/ui/badge"
-import { Avatar, AvatarImage } from "./_components/ui/avatar"
 import { db } from "./_lib/prisma"
 import BarbershopItem from "./_components/BarbershopItem"
+import { quickSearchOptions } from "./_constants/search"
+import BookingItem from "./_components/booking-item"
 
 const Home = async () => {
   const barbershops = await db.barbershop.findMany({})
@@ -35,42 +35,22 @@ const Home = async () => {
         {/* quick search */}
 
         <div className="mt-6 flex gap-3 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
-          <Button className="gap-2 rounded-xl" variant="secondary">
-            <Image src="/cabelo.svg" width={16} height={16} alt="cabelo" />
-            Cabelo
-          </Button>
-
-          <Button className="gap-2 rounded-xl" variant="secondary">
-            <Image src="/barba.svg" width={16} height={16} alt="cabelo" />
-            Barba
-          </Button>
-
-          <Button className="gap-2 rounded-xl" variant="secondary">
-            <Image src="/acabamento.svg" width={16} height={16} alt="cabelo" />
-            Acabamento
-          </Button>
-
-          <Button className="gap-2 rounded-xl" variant="secondary">
-            <FootprintsIcon size={16} />
-            Pezinho
-          </Button>
-
-          <Button className="gap-2 rounded-xl" variant="secondary">
-            <Image src="/sobrancelha.svg" width={16} height={16} alt="cabelo" />
-            Sobrancelha
-          </Button>
-
-          <Button className="gap-2 rounded-xl" variant="secondary">
-            <Image src="/hidratacao.svg" width={16} height={16} alt="cabelo" />
-            Hidratação
-          </Button>
-
-          <Button className="gap-2 rounded-xl" variant="secondary">
-            <Image src="/massagem.svg" width={16} height={16} alt="cabelo" />
-            Massagem
-          </Button>
+          {quickSearchOptions.map((option) => (
+            <Button
+              className="gap-2 rounded-xl"
+              variant="secondary"
+              key={option.title}
+            >
+              <Image
+                src={option.imageUrl}
+                width={16}
+                height={16}
+                alt={option.title}
+              />
+              {option.title}
+            </Button>
+          ))}
         </div>
-
         {/* image */}
         <div className="relative mt-6 h-[150px] w-full">
           <Image
@@ -80,34 +60,10 @@ const Home = async () => {
             className="rounded-xl object-cover"
           />
         </div>
-        {/* booking */}
-        <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
-          Agendamentos
-        </h2>
 
-        <Card>
-          <CardContent className="flex justify-between p-0">
-            {/* div left */}
-            <div className="flex flex-col gap-2 py-5 pl-5">
-              <Badge className="w-fit bg-violet-400 text-white">
-                Confirmado
-              </Badge>
-              <h3 className="font-semibold">Corte de Cabelo</h3>
-              <div className="flex items-center gap-2">
-                <Avatar className="h-6 w-6">
-                  <AvatarImage src="https://utfs.io/f/c97a2dc9-cf62-468b-a851-bfd2bdde775f-16p.png" />
-                </Avatar>
-                <p className="text-sm">Barbearia Varzea-nova</p>
-              </div>
-            </div>
-            {/* div right */}
-            <div className="flex flex-col items-center justify-center border-l-2 border-solid px-5">
-              <p className="text-sm">Agosto</p>
-              <p className="text-2xl">06</p>
-              <p className="text-sm">08:00</p>
-            </div>
-          </CardContent>
-        </Card>
+        {/* booking */}
+        <BookingItem />
+
         <h2 className="mb-3 mt-6 text-xs font-bold uppercase text-gray-400">
           Recomendados
         </h2>
