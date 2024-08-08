@@ -1,10 +1,18 @@
 import { Button } from "./ui/button"
-import { CalendarIcon, HomeIcon, LogOutIcon } from "lucide-react"
+import { CalendarIcon, HomeIcon, LogInIcon, LogOutIcon } from "lucide-react"
 import { SheetClose, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet"
 import { quickSearchOptions } from "../_constants/search"
-import { Avatar, AvatarImage } from "./ui/avatar"
+// import { Avatar, AvatarImage } from "./ui/avatar"
 import Link from "next/link"
 import Image from "next/image"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog"
 
 const SidebarSheets = () => {
   return (
@@ -13,14 +21,40 @@ const SidebarSheets = () => {
         <SheetTitle className="text-left">Menu</SheetTitle>
       </SheetHeader>
 
-      <div className="flex items-center gap-3 border-b border-solid p-5">
-        <Avatar>
+      <div className="flex items-center justify-between gap-3 border-b border-solid p-5">
+        <h2 className="font-bold">Olá, faça seu login</h2>
+        <Dialog>
+          <DialogTrigger>
+            <Button size="icon" className="rounded bg-[#7F61FC]">
+              <LogInIcon />
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="w-[90%] rounded">
+            <DialogHeader>
+              <DialogTitle>Faça seu login na plataforma</DialogTitle>
+              <DialogDescription>
+                Conect-se usando sua conta Google
+              </DialogDescription>
+            </DialogHeader>
+
+            <Button variant="outline" className="gap-2 rounded font-bold">
+              <Image
+                alt="Fazer login com Google"
+                src="/google.svg"
+                width={18}
+                height={18}
+              />
+              Google
+            </Button>
+          </DialogContent>
+        </Dialog>
+        {/* <Avatar>
           <AvatarImage src="https://media.licdn.com/dms/image/D4D03AQG1sMZT7-sWAQ/profile-displayphoto-shrink_800_800/0/1720025583445?e=1728518400&v=beta&t=LqOUgrxnH8XHxXrOn2dAsQDkwny2k88SHrIWagU3Ooc" />
         </Avatar>
         <div>
           <p className="text-bold">Esdras Marcelino</p>
           <p className="text-xs">esdrasmarcelino55@gmail.com</p>
-        </div>
+        </div> */}
       </div>
 
       <div className="flex flex-col gap-2 border-b border-solid py-5">
