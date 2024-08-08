@@ -2,7 +2,6 @@ import { BarbershopService } from "@prisma/client"
 import Image from "next/image"
 import { Button } from "./ui/button"
 import { Card, CardContent } from "./ui/card"
-import Footer from "./Footer"
 
 interface ServiceItemProps {
   service: BarbershopService
@@ -41,7 +40,6 @@ const ServiceItem = ({ service }: ServiceItemProps) => {
           </div>
         </CardContent>
       </Card>
-      <Footer />
     </>
   )
 }

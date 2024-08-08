@@ -7,7 +7,6 @@ import { db } from "./_lib/prisma"
 import BarbershopItem from "./_components/BarbershopItem"
 import { quickSearchOptions } from "./_constants/search"
 import BookingItem from "./_components/booking-item"
-import Footer from "./_components/Footer"
 
 const Home = async () => {
   const barbershops = await db.barbershop.findMany({})
@@ -82,7 +81,6 @@ const Home = async () => {
           ))}
         </div>
       </div>
-      <Footer />
     </>
   )
 }
