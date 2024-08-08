@@ -6,7 +6,7 @@ import Image from "next/image"
 import { db } from "./_lib/prisma"
 import BarbershopItem from "./_components/BarbershopItem"
 import { quickSearchOptions } from "./_constants/search"
-import BookingItem from "./_components/booking-item"
+import BookingItem from "./_components/BookingItem"
 
 const Home = async () => {
   const barbershops = await db.barbershop.findMany({})
