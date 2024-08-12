@@ -19,6 +19,8 @@ import { createBooking } from "../_actions/create-booking"
 import { useSession } from "next-auth/react"
 import { toast } from "sonner"
 import { getBookings } from "../_actions/get-booking"
+import { Dialog, DialogContent } from "./ui/dialog"
+import SignInDialog from "./SignInDialog"
 
 interface ServiceItemProps {
   service: BarbershopService
@@ -67,6 +69,7 @@ const getTimeList = (bookings: Bookin[]) => {
 }
 
 const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
+  const [signInDialogIsOpen, setSignInDialogIsOpen] = useState(false)
   const { data } = useSession()
   const [selectedDay, setSelectedDay] = useState<Date | undefined>(undefined)
   const [selectedTime, setSelectedTime] = useState<string | undefined>(
@@ -86,6 +89,13 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
     }
     fetch()
   }, [selectedDay, service.id])
+
+  const handleBookingClick = () => {
+    if (data?.user) {
+      return setBookingSheetsIsOpen(true)
+    }
+    return setSignInDialogIsOpen(true)
+  }
 
   const handleBookingSheetsOpenChange = () => {
     setSelectedDay(undefined)
@@ -159,7 +169,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
                   variant="secondary"
                   size="sm"
                   className="rounded-xl"
-                  onClick={() => setBookingSheetsIsOpen(true)}
+                  onClick={handleBookingClick}
                 >
                   Reservar
                 </Button>
@@ -274,6 +284,15 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
           </div>
         </CardContent>
       </Card>
+
+      <Dialog
+        open={signInDialogIsOpen}
+        onOpenChange={(open) => setSignInDialogIsOpen(open)}
+      >
+        <DialogContent className="rounded-xl">
+          <SignInDialog />
+        </DialogContent>
+      </Dialog>
     </>
   )
 }
