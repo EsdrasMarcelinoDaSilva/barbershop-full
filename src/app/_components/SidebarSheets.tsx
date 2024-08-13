@@ -13,7 +13,6 @@ import SignInDialog from "./SignInDialog"
 
 const SidebarSheets = () => {
   const { data } = useSession()
-  // const handleLoginWithGoogleClick = () => signIn("google")
   const handleLogoutClick = () => signOut()
 
   return (
@@ -64,9 +63,11 @@ const SidebarSheets = () => {
             </Link>
           </Button>
         </SheetClose>
-        <Button className="justify-start gap-2 rounded" variant="ghost">
-          <CalendarIcon size={18} />
-          Agendamentos
+        <Button className="justify-start gap-2 rounded" variant="ghost" asChild>
+          <Link href="/bookings">
+            <CalendarIcon size={18} />
+            Agendamentos
+          </Link>
         </Button>
       </div>
 
