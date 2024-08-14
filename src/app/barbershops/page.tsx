@@ -58,5 +58,4 @@ const BarbershopPages = async ({ searchParams }: BarbershopPagesProps) => {
     </div>
   )
 }
-
 export default BarbershopPages
