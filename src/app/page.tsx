@@ -50,7 +50,7 @@ const Home = async () => {
       <div className="p-5">
         {/* text */}
         <h2 className="text-xl font-bold">
-          Olá, {session?.user ? session.user.name : "Bem vindo!"}
+          Olá, {session?.user ? session.user.name : "Seja Bem vindo!"}
         </h2>
 
         <p>
