@@ -46,6 +46,7 @@ const Home = async () => {
     <>
       {/* header */}
       <Header />
+
       <div className="p-5">
         {/* text */}
         <h2 className="text-xl font-bold">
@@ -64,8 +65,8 @@ const Home = async () => {
         <div className="mt-6">
           <Search />
         </div>
-        {/* quick search */}
 
+        {/* quick search */}
         <div className="mt-6 flex gap-3 overflow-x-scroll [&::-webkit-scrollbar]:hidden">
           {quickSearchOptions.map((option) => (
             <Button
@@ -101,6 +102,7 @@ const Home = async () => {
         </h2>
 
         {/* booking */}
+
         <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">
           {confirmBookings.map((booking) => (
             <BookingItem key={booking.id} booking={booking} />
