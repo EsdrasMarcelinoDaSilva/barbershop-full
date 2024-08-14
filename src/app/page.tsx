@@ -1,4 +1,4 @@
-import Header from "././_components/Header"
+import Header from "@/app/_components/Header"
 import { Button } from "./_components/ui/button"
 import Image from "next/image"
 import { db } from "./_lib/prisma"
