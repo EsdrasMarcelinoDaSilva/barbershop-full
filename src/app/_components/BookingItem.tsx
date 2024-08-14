@@ -166,9 +166,10 @@ const BookingItem = ({ booking }: BookingItemProps) => {
                 </DialogTrigger>
                 <DialogContent className="w-[90%]">
                   <DialogHeader>
-                    <DialogTitle>Deseja cancelar sua reserva?</DialogTitle>
+                    <DialogTitle>Você deseja cancelar sua reserva?</DialogTitle>
                     <DialogDescription>
-                      Tem certeza? pois não poderá recuperá-la.
+                      Ao cancelar, você perderá sua reserva e não poderá
+                      recuperá-la. Essa ação é irreversível.
                     </DialogDescription>
                   </DialogHeader>
                   <DialogFooter className="flex flex-row gap-3">
