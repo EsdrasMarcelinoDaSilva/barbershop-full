@@ -10,7 +10,7 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "./_lib/auth"
 import { format } from "date-fns"
 import { ptBR } from "date-fns/locale"
-import Header from "./_components/Header"
+import Header from "./_components/header"
 
 const Home = async () => {
   const session = await getServerSession(authOptions)

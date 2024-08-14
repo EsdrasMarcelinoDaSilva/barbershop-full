@@ -3,7 +3,7 @@ import { db } from "../_lib/prisma"
 import { authOptions } from "../_lib/auth"
 import { notFound } from "next/navigation"
 import BookingItem from "../_components/BookingItem"
-import Header from "../_components/Header"
+import Header from "../_components/header"
 
 const Bookings = async () => {
   const session = await getServerSession(authOptions)
