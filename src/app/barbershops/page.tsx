@@ -4,7 +4,6 @@ import Search from "../_components/Search"
 import { db } from "../_lib/prisma"
 
 interface BarbershopPagesProps {
-  where: {}
   searchParams: {
     title?: string
     service?: string
